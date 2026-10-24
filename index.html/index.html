@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#f6f5f1" />
+  <title>人格旅行 · 让人格，遇见风景</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="phone">
+    <!-- 顶部导航 -->
+    <div class="topnav hidden" id="topnav">
+      <button class="back" id="topnavBack" aria-label="返回">‹</button>
+      <div class="title" id="topnavTitle"></div>
+    </div>
+
+    <!-- 首页 -->
+    <section class="view home" id="view-home">
+      <div class="home-brand"><span class="dot"></span>人格旅行 · PERSONALITY TRIP</div>
+      <div class="home-hero">
+        <div class="hero-img-wrap">
+          <img src="https://picsum.photos/id/1039/750/500" alt="山川湖海" />
+          <div class="hero-img-mask">山川湖海，各有偏爱</div>
+        </div>
+        <div class="home-slogan">让人格，遇见风景</div>
+        <div class="home-sub">7 道轻量选择题，为你匹配契合灵魂的
+人文底蕴与自然风景</div>
+      </div>
+      <div class="home-footer">
+        <button class="btn-primary" id="btnStart">开启我的人格旅行</button>
+        <span class="home-note">30 秒解锁专属旅行与人文风景</span>
+      </div>
+    </section>
+
+    <!-- 答题页 -->
+    <section class="view quiz" id="view-quiz">
+      <div class="quiz-top">
+        <button class="quiz-back" id="quizBack">‹</button>
+        <div class="quiz-progress-text" id="quizProgress">1 / 7</div>
+        <div class="quiz-placeholder"></div>
+      </div>
+      <div class="track"><div class="track-fill" id="quizTrackFill"></div></div>
+      <div class="quiz-block" id="quizBlock"></div>
+      <div class="quiz-hint"><span>点击选项自动进入下一题 · 可返回修改</span></div>
+    </section>
+
+    <!-- 结果页 -->
+    <section class="view result" id="view-result"></section>
+
+    <!-- 我的 -->
+    <section class="view mine" id="view-mine">
+      <div class="mine-title">我的旅行档案</div>
+      <span class="mine-sub" id="mineSub">测一次，收藏一座与你契合的城</span>
+      <div id="mineList"></div>
+      <div class="mine-menu" id="btnAbout">
+        <span>关于我们</span><span class="arrow">›</span>
+      </div>
+      <button class="btn-clear" id="btnClear" style="display:none">清空历史记录</button>
+    </section>
+
+    <!-- 关于 -->
+    <section class="view about" id="view-about">
+      <div class="about-hero">
+        <div class="about-mark">旅</div>
+        <div class="about-name">人格旅行</div>
+        <div class="about-version">Version 1.0.0（网页版 Demo）</div>
+      </div>
+      <div class="about-card">
+        <h4>产品介绍</h4>
+        <p>人格旅行是一款轻量化的趣味人格测试工具：通过 7 道简单选择题，判定你的专属旅行人格，并匹配契合气质的属地人文与自然风景，自动生成极简定制旅行攻略。</p>
+      </div>
+      <div class="about-list">
+        <div class="row"><span class="dot"></span>无广告，清爽使用</div>
+        <div class="row"><span class="dot"></span>无付费，核心功能全开放</div>
+        <div class="row"><span class="dot"></span>无需登录，打开即测，数据仅存本机</div>
+      </div>
+      <div class="about-back"><button class="btn-primary" id="btnAboutBack">返回我的</button></div>
+    </section>
+
+    <!-- 底部 TabBar -->
+    <nav class="tabbar" id="tabbar">
+      <button data-tab="home" class="active">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.6 12 4l8 6.6"/><path d="M6.2 9.6V19a1 1 0 0 0 1 1h9.6a1 1 0 0 0 1-1V9.6"/><path d="M10 20v-5.2h4V20"/></svg>
+        首页
+      </button>
+      <button data-tab="mine">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8.2" r="3.6"/><path d="M4.6 20c.9-3.6 3.9-5.4 7.4-5.4s6.5 1.8 7.4 5.4"/></svg>
+        我的
+      </button>
+    </nav>
+
+    <div class="toast" id="toast"></div>
+    <canvas id="posterCanvas" style="position:fixed;left:-9999px;top:0;"></canvas>
+  </div>
+
+  <script src="./data.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
